@@ -1,22 +1,25 @@
 export const QueryBeers = `
 query {
-    allBeers {
-      id
-      title
-      description
-      style_id
-      country_id
-      image_path  
-      Style{
-          id
-          name
-      }
-      Country{
+  allBeers {
+    id
+    title
+    description
+    style_id
+    country_id
+    image_path  
+    Style{
         id
         name
-      }
+    }
+    Country{
+      id
+      name
+    }FavoriteBeers{
+      id
+      beer_id
     }
   }
+}
 `;
 
 export const QueryFavoriteBeers =  `

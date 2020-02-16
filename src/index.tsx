@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import {QueryBeers,QueryFavoriteBeers} from './utils/querry';
 import './hooks/fetchData';
-
+import Layout from './Components/Hoc/Layout';
 export const myContext = React.createContext<any>([{beerData :  {}},{favoriteBeer: {}},]);
 
 const App : React.FC= () => {
@@ -15,9 +15,11 @@ const App : React.FC= () => {
     const value = [FetchApi(QueryBeers),FetchApi(QueryFavoriteBeers)]
     return (
         <myContext.Provider value={ value}>
-            <BrowserRouter>    
-                <Routes/>
-            </BrowserRouter>
+            <Layout>
+                <BrowserRouter>    
+                    <Routes/>
+                </BrowserRouter>
+            </Layout>
         </myContext.Provider>
     )
 }
